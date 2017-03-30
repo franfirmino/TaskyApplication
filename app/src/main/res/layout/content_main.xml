@@ -42,7 +42,7 @@
      <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calendar"
+            android:text="Events"
             style="@style/Widget.AppCompat.Button.Colored"/>
 
     </LinearLayout>
