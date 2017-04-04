@@ -30,19 +30,14 @@ public class AdapterContactList extends ArrayAdapter<String> implements ListAdap
         this.phones = phones;
     }
 
-    /*@Override
+    @Override
     public View getView(int position, View view, ViewGroup parent) {
 
         LayoutInflater lf  = (LayoutInflater)context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
         View rowView = lf.inflate(R.layout.list_contacts, null);
 
-        TextView nameTxt = (TextView) rowView.findViewById(R.id.contactName);
-        TextView phoneTxt = (TextView) rowView.findViewById(R.id.phoneNo);
-
-        //nameTxt.setText(namesC[position]);
-        //phoneTxt.setText(phones[position]);
         return rowView;
 
-    };*/
+    };
 
 }
