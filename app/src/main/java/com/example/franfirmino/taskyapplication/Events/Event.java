@@ -1,4 +1,4 @@
-package com.example.franfirmino.taskyapplication;
+package com.example.franfirmino.taskyapplication.Events;
 
 import com.google.firebase.database.Exclude;
 
@@ -10,19 +10,21 @@ import java.util.Map;
  * Created by Fran Firmino on 04/04/2017.
  */
 
-public class Task {
+public class Event {
 
-        public Date eventDate, reminder;
-        public String title, description;
+        public Event(){
 
-        public Task() {
-        }
+    }
 
-        public Task(Date eventDate, String title, String description, Date reminder){
+        public String title, description, pic, eventDate, time;
+
+        public Event(String eventDate, String time, String title, String description, String pic){
             this.eventDate = eventDate;
+            this.time = time;
             this.title = title;
             this.description = description;
-            this.reminder = reminder;
+            this.pic = pic;
+
         }
 
 
@@ -30,26 +32,19 @@ public class Task {
         public Map<String, Object> toMap() {
             HashMap<String, Object> result = new HashMap<>();
             result.put("date", eventDate);
-            result.put("event", title);
+            result.put("time", time);
+            result.put("title", title);
             result.put("description", description);
-            result.put("reminder", reminder);
+            result.put("pic", pic);
             return result;
         }
 
-    public Date getEventDate() {
-        return eventDate;
+    public String getTime() {
+        return time;
     }
 
-    public void setEventDate(Date eventDate) {
-        this.eventDate = eventDate;
-    }
-
-    public Date getReminder() {
-        return reminder;
-    }
-
-    public void setReminder(Date reminder) {
-        this.reminder = reminder;
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public String getTitle() {
@@ -66,5 +61,21 @@ public class Task {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
+    }
+
+    public String getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(String eventDate) {
+        this.eventDate = eventDate;
     }
 }

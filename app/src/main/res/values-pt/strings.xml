@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Tasky</string>
+    <string name="action_settings">Configuracoes</string>
+    <string name="messageToLbl">MANDAR MESSAGEM PARA:</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="main_msg">Para comecar escolha uma das opcoes abaixo</string>
+    <string name="tasks">Tarefas</string>
+    <string name="events">Eventos</string>
+    <string name="schedule_text_message">Agendar Mensagem de Texto</string>
+    <string name="pick_time">ESCOLHA HORA</string>
+    <string name="pick_date">ESCOLHA DATA</string>
+    <string name="write_message_here">Escreva Mensagem Aqui</string>
+    <string name="title_event">Titulo</string>
+    <string name="pick_a_date">Escolha uma data</string>
+    <string name="pick_a_time">Escolha um horario</string>
+    <string name="description">Descricao</string>
+    <string name="create">Criar</string>
+    <string name="take_photo">Tirar Foto</string>
+    <string name="choose_gallery">Escolher do Album</string>
+    <string name="cancel">Cancelar</string>
+    <string name="add_photo">Adicionar Foto</string>
+    <string name="permission_SMS">Permissao para mandar SMS</string>
+    <string name="send_msg_to">"Agendar mensagem para "</string>
+    <string name="msg_scheduled">Mensagem foi Agendada!</string>
+    <string name="delete">Deletar</string>
+    <string name="event">"Evento: "</string>
+    <string name="date">"Data "</string>
+    <string name="time">"Horario: "</string>
+    <string name="details">"Detalhes "</string>
+</resources>

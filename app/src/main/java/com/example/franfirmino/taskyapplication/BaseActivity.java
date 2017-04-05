@@ -8,21 +8,25 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.franfirmino.taskyapplication.Events.Event;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,14 +40,15 @@ public class BaseActivity extends AppCompatActivity {
     final Context context = this;
 
         //Add new animal to Firebase
-        final public void addNewTask(Date eventDate, String title, String description, Date reminder) {
+
+        final public void addNewEvent(String eventDate, String time, String title, String description, String pic) {
 
             FirebaseDatabase database = FirebaseDatabase.getInstance();
-            DatabaseReference myRef = database.getReference("/data/tasks/");
+            DatabaseReference myRef = database.getReference("/data/events/");
 
-            String key = myRef.child("tasks").push().getKey();
-            Task task = new Task(eventDate, title, description ,reminder);
-            Map<String, Object> animalDetails = task.toMap();
+            String key = myRef.child("events").push().getKey();
+            Event event= new Event(eventDate, time, title, description, pic);
+            Map<String, Object> animalDetails = event.toMap();
 
             Map<String, Object> childUpdates = new HashMap<>();
             childUpdates.put(key, animalDetails);
@@ -87,14 +92,14 @@ public class BaseActivity extends AppCompatActivity {
 
 
     // store image in Firebase
-        public void saveImage(ImageView addImage, String uniqueID){
+        public void saveImage(ImageView addImage, String uniqueID) {
 
             Uri downloadUrl = null;
             // Create a storage reference from our app
-            StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://taskyapplication-6a97d.appspot.com/");
+            StorageReference storageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://taskyapplication-6a97d.appspot.com");
 
             // Create a reference to "mountains.jpg"
-            StorageReference mountainsRef = storageRef.child("event_pics/");
+            StorageReference mountainsRef = storageRef.child("event_pics/events/" + uniqueID + ".jpg");
 
             // Get the data from an ImageView as bytes
             addImage.setDrawingCacheEnabled(true);
@@ -118,5 +123,10 @@ public class BaseActivity extends AppCompatActivity {
                 }
             });
         }
+
+
+
+
+
 
 }
